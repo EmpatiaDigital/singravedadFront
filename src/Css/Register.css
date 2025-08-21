@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@400&family=Oswald:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap');
+
+.register-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 140, 66, 0.1) 0%, transparent 50%),
+    linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%);
+  color: #e0e0e0;
+}
+.password-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.password-wrapper .register-input {
+  width: 90%;
+  padding-right: 40px; /* Espacio para el ícono */
+}
+
+.eye-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #ff6b35;
+}
+
+.register-form {
+  background: linear-gradient(145deg, #1e1e1e, #2a2a2a);
+  padding: 2.5rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(255, 107, 53, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border: 1px solid #333;
+  position: relative;
+}
+
+.register-title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2.2rem;
+  text-align: center;
+  color: #ff6b35;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 
+    2px 2px 0px #000,
+    0 0 15px rgba(255, 107, 53, 0.5);
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 2px 2px 0px #000, 0 0 15px rgba(255, 107, 53, 0.3);
+  }
+  to {
+    text-shadow: 2px 2px 0px #000, 0 0 25px rgba(255, 107, 53, 0.6);
+  }
+}
+
+.register-input {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #333;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  background: #111;
+  color: #e0e0e0;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.register-input:focus {
+  border-color: #ff6b35;
+  box-shadow: 0 0 8px rgba(255, 107, 53, 0.5);
+}
+
+.register-btn {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #ff6b35, #ff8c42);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+  transition: all 0.3s ease;
+}
+
+.register-btn:hover {
+  background: linear-gradient(135deg, #ff8c42, #ffab42);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.5);
+}
+
+.register-message {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: #b0b0b0;
+}

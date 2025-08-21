@@ -1,0 +1,84 @@
+/* UserMusica CSS - Estilo Rock Argentino */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@400&family=Oswald:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap');
+
+.user-musica-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+  color: #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  font-family: 'Inter', sans-serif;
+}
+
+.user-musica-container h2 {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2rem;
+  color: #ff6b35;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.song-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.song-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(145deg, #1e1e1e, #2a2a2a);
+  border-radius: 8px;
+  border: 1px solid #333;
+  transition: all 0.3s ease;
+}
+
+.song-item:hover {
+  transform: translateY(-2px);
+  border-color: #ff6b35;
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+}
+
+.song-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.song-title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  color: #ff6b35;
+  margin: 0;
+}
+
+.song-artist {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  color: #b0b0b0;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.song-actions button {
+  background: linear-gradient(135deg, #ff6b35, #ff8c42);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: all 0.3s ease;
+}
+
+.song-actions button:hover {
+  background: linear-gradient(135deg, #ff8c42, #ffab42);
+  transform: translateY(-1px);
+}

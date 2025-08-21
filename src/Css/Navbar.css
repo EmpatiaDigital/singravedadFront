@@ -1,0 +1,238 @@
+/* Navbar CSS - Estilo Rock Argentino */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@400&family=Oswald:wght@300;400;500;600;700&display=swap');
+
+.navbar {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+  border-bottom: 3px solid #ff6b35;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.navbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #ff6b35, transparent);
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Logo/Brand */
+.navbar-brand {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2rem;
+  font-weight: 400;
+  color: #ff6b35;
+  text-decoration: none;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 
+    2px 2px 0px #000,
+    4px 4px 8px rgba(255, 107, 53, 0.3);
+  transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+  color: #ff8c42;
+  text-shadow: 
+    2px 2px 0px #000,
+    4px 4px 12px rgba(255, 107, 53, 0.5),
+    0 0 20px rgba(255, 107, 53, 0.3);
+  transform: scale(1.05);
+}
+
+/* Navigation Menu */
+.navbar-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+}
+
+.navbar-item {
+  position: relative;
+}
+
+.navbar-link {
+  display: block;
+  padding: 0.75rem 1.5rem;
+  color: #e0e0e0;
+  text-decoration: none;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 400;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.navbar-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.navbar-link:hover::before {
+  left: 100%;
+}
+
+.navbar-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #ff6b35, #ff8c42);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.navbar-link:hover {
+  color: #ff6b35;
+  text-shadow: 0 0 8px rgba(255, 107, 53, 0.5);
+}
+
+.navbar-link:hover::after {
+  width: 80%;
+}
+
+/* Logout Button */
+.navbar-logout-btn {
+  background: linear-gradient(135deg, #ff6b35, #ff8c42);
+  border: none;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 2px 8px rgba(255, 107, 53, 0.3);
+}
+
+.navbar-logout-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.navbar-logout-btn:hover::before {
+  left: 100%;
+}
+
+.navbar-logout-btn:hover {
+  background: linear-gradient(135deg, #ff8c42, #ffab42);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.5);
+}
+
+.navbar-logout-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(255, 107, 53, 0.3);
+}
+
+/* Botón hamburguesa */
+.navbar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #ff6b35;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.navbar-toggle:hover {
+  color: #ff8c42;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar-container {
+    padding: 1rem;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .navbar-toggle {
+    display: block;
+  }
+
+  .navbar-menu {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: #1a1a1a;
+    flex-direction: column;
+    align-items: center;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+    border-top: 2px solid #ff6b35;
+  }
+
+  .navbar-menu.active {
+    max-height: 500px; /* Menú desplegado */
+  }
+
+  .navbar-item {
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar-link {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 107, 53, 0.2);
+  }
+
+  .navbar-link:last-child {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-brand {
+    font-size: 1.5rem;
+  }
+
+  .navbar-link {
+    font-size: 1rem;
+  }
+}
