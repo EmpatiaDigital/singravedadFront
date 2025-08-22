@@ -420,8 +420,8 @@ const MusicAdmin = () => {
                     <div className="song-duration">
                       {song.duration || '0:00'}
                     </div>
-
-                    {/* Acciones */}
+                  </div>
+                       {/* Acciones */}
                     <div className="song-actions">
                       <button
                         onClick={() => handleEdit(song)}
@@ -438,7 +438,6 @@ const MusicAdmin = () => {
                         <Trash2 size={18} className="action-icon" />
                       </button>
                     </div>
-                  </div>
                 </div>
               ))}
             </div>
@@ -468,3 +467,4 @@ const MusicAdmin = () => {
 
 
 export default MusicAdmin;
+
