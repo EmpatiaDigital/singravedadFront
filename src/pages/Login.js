@@ -62,12 +62,14 @@ const Login = () => {
       }
 
       const data = await res.json();
+
       const usuario = {
         token: data.token,
-        rol: data.role || "user",
+        rol: data.role || "admin",
         email: data.email || email,
-        nombre: data.nombre || "Sin Usuario"
+        nombre: data.nombre || "Usuario"
       };
+      
       login(usuario);
       setSuccess(true);
       setTimeout(() => navigate("/"), 800);
@@ -80,6 +82,7 @@ const Login = () => {
     } finally {
       setLoading(false);
     }
+    
   };
 
   return (
@@ -163,5 +166,3 @@ const Login = () => {
 };
 
 export default Login;
-
-
