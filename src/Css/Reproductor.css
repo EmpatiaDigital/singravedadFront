@@ -130,7 +130,8 @@
 
 .reproductor-header {
   background: linear-gradient(90deg, #ff6b35, #ff8c42);
-  padding: 8px 12px;
+  padding: 8px 10px;
+  height:5%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -621,4 +622,5 @@
     height: 45px;
   }
 }
+
 
