@@ -235,6 +235,51 @@ const Reproductor = ({ playlist = [] }) => {
         {!isMinimized ? (
           /* Vista maximizada */
           <div className="reproductor-content">
+              {/* Playlist */}
+            <div className="playlist-section">
+              <h4 className="playlist-title">
+                <Music size={16} />
+                Lista de Reproducción ({playlist.length})
+              </h4>
+              <div className="playlist">
+                {playlist.length > 0 ? (
+                  playlist.map((track, index) => (
+                    <div
+                      key={track._id || track.id || index}
+                      className={`playlist-item ${
+                        currentTrack?._id === track._id || currentTrack?.id === track.id 
+                          ? 'active' 
+                          : ''
+                      }`}
+                      onClick={() => selectTrack(track, index)}
+                    >
+                      <div className="playlist-item-cover">
+                        <img
+                          src={track.coverUrl || defaultCover}
+                          alt={track.title}
+                          onError={(e) => { e.target.src = defaultCover; }}
+                        />
+                      </div>
+                      <div className="playlist-item-info">
+                        <p className="playlist-item-title">{track.title}</p>
+                        <p className="playlist-item-artist">{track.artist}</p>
+                      </div>
+                      <div className="playlist-item-duration">
+                        {track.duration || '0:00'}
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  <div className="no-tracks">
+                    <Music size={32} />
+                    <p>No hay canciones en la playlist</p>
+                    <p style={{ fontSize: '14px', color: '#666', marginTop: '8px' }}>
+                      Agrega algunas canciones para comenzar a escuchar música
+                    </p>
+                  </div>
+                )}
+              </div>
+            </div>
             <div className="main-content">
               {/* Área de la carátula y información */}
               <div className="track-display">
@@ -335,52 +380,6 @@ const Reproductor = ({ playlist = [] }) => {
                     className="volume-slider"
                   />
                 </div>
-              </div>
-            </div>
-
-            {/* Playlist */}
-            <div className="playlist-section">
-              <h4 className="playlist-title">
-                <Music size={16} />
-                Lista de Reproducción ({playlist.length})
-              </h4>
-              <div className="playlist">
-                {playlist.length > 0 ? (
-                  playlist.map((track, index) => (
-                    <div
-                      key={track._id || track.id || index}
-                      className={`playlist-item ${
-                        currentTrack?._id === track._id || currentTrack?.id === track.id 
-                          ? 'active' 
-                          : ''
-                      }`}
-                      onClick={() => selectTrack(track, index)}
-                    >
-                      <div className="playlist-item-cover">
-                        <img
-                          src={track.coverUrl || defaultCover}
-                          alt={track.title}
-                          onError={(e) => { e.target.src = defaultCover; }}
-                        />
-                      </div>
-                      <div className="playlist-item-info">
-                        <p className="playlist-item-title">{track.title}</p>
-                        <p className="playlist-item-artist">{track.artist}</p>
-                      </div>
-                      <div className="playlist-item-duration">
-                        {track.duration || '0:00'}
-                      </div>
-                    </div>
-                  ))
-                ) : (
-                  <div className="no-tracks">
-                    <Music size={32} />
-                    <p>No hay canciones en la playlist</p>
-                    <p style={{ fontSize: '14px', color: '#666', marginTop: '8px' }}>
-                      Agrega algunas canciones para comenzar a escuchar música
-                    </p>
-                  </div>
-                )}
               </div>
             </div>
           </div>
