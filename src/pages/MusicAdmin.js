@@ -364,15 +364,16 @@ const MusicAdmin = () => {
         {/* Barra de búsqueda */}
         <div className="search-card">
           <div className="search-container">
-            <Search className="search-icon" size={20} />
             <input
               type="text"
-              placeholder="Buscar canciones por título, artista o álbum..."
+              placeholder="Buscar canciones por título, artista..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="search-input"
             />
           </div>
+          <br></br>
+          <Search className="search-icon" size={20} />
         </div>
 
         {/* Lista de canciones */}
@@ -464,5 +465,6 @@ const MusicAdmin = () => {
     </div>
   );
 };
+
 
 export default MusicAdmin;
