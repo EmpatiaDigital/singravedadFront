@@ -45,7 +45,7 @@ const Navbar = () => {
             </Link>
           </li>
 
-          {(user?.rol === "admin" || user?.rol === "superadmin") && (
+          {(user?.rol === "user" || user?.rol === "superadmin") && (
             <>
               <li className="navbar-item">
                 <Link to="/dashboard" className="navbar-link" onClick={() => setMenuOpen(false)}>
@@ -80,3 +80,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
