@@ -1,10 +1,12 @@
 /* Dashboard general */
 .dashboard {
-  padding: 30px;
+  padding: 30px 20px;
   font-family: 'Inter', sans-serif;
   background-color: #0f0f0f;
   color: #e0e0e0;
   min-height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* Header */
@@ -32,73 +34,119 @@
   border-radius: 12px;
   margin-bottom: 40px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-  width:50vh;
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .create-event-form h2 {
   color: #ff6b35;
   margin-bottom: 20px;
   font-family: 'Bebas Neue', cursive;
+  font-size: 24px;
+}
+
+/* Grid para inputs del formulario */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-bottom: 15px;
 }
 
 .create-event-form input,
 .create-event-form select,
 .create-event-form textarea {
   width: 100%;
-  margin: 8px 0;
-  padding: 10px;
+  padding: 12px;
   border-radius: 8px;
   border: none;
   background-color: #1c1c1c;
   color: #e0e0e0;
   font-size: 14px;
+  box-sizing: border-box;
 }
 
 .create-event-form textarea {
   resize: vertical;
+  min-height: 80px;
 }
 
-.create-event-form label {
+.checkbox-label {
   display: flex;
   align-items: center;
   gap: 8px;
   font-size: 14px;
-  margin-top: 10px;
+  margin: 15px 0;
+  cursor: pointer;
 }
 
-.create-event-form button {
-  margin-top: 15px;
+.checkbox-label input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+}
+
+/* Botones del formulario */
+.form-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.save-btn,
+.cancel-btn {
+  flex: 1;
   padding: 12px 20px;
   border: none;
   border-radius: 8px;
-  background: linear-gradient(135deg, #ff6b35, #ff8c42);
-  color: #fff;
   font-weight: bold;
   font-size: 16px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.create-event-form button:hover {
+.save-btn {
+  background: linear-gradient(135deg, #ff6b35, #ff8c42);
+  color: #fff;
+}
+
+.save-btn:hover {
   background: linear-gradient(135deg, #ff8c42, #ffab42);
+}
+
+.cancel-btn {
+  background: linear-gradient(135deg, #666, #777);
+  color: #fff;
+}
+
+.cancel-btn:hover {
+  background: linear-gradient(135deg, #777, #888);
+}
+
+/* Sección de eventos */
+.events-section {
+  margin-top: 40px;
 }
 
 /* Grid de eventos */
 .events-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 25px;
+  padding: 0;
 }
 
 /* Tarjeta de evento */
 .dashboard-card {
-  position: relative;
   background: linear-gradient(145deg, #1e1e1e, #2a2a2a);
   border-radius: 12px;
-  padding: 15px;
+  padding: 20px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.3);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  width:50vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 400px;
 }
 
 .dashboard-card:hover {
@@ -106,18 +154,23 @@
   box-shadow: 0 10px 25px rgba(0,0,0,0.4);
 }
 
+/* Wrapper del EventCard */
+.event-card-wrapper {
+  flex: 1;
+  margin-bottom: 15px;
+}
+
 /* Acciones de la tarjeta */
-.dashboard-actions {
+.card-actions {
   display: flex;
-  justify-content: space-between;
-  margin-top: 15px;
+  gap: 10px;
+  margin-top: auto;
 }
 
 .edit-btn,
 .delete-btn {
   flex: 1;
-  margin: 0 5px;
-  padding: 10px 0;
+  padding: 10px 15px;
   border: none;
   border-radius: 8px;
   font-weight: bold;
@@ -125,6 +178,7 @@
   color: #fff;
   transition: all 0.3s ease;
   text-align: center;
+  font-size: 14px;
 }
 
 .edit-btn {
@@ -149,5 +203,116 @@
   text-align: center;
   font-size: 18px;
   color: #b0b0b0;
-  margin-top: 20px;
+  margin-top: 40px;
+  padding: 40px;
+  background: linear-gradient(145deg, #1e1e1e, #2a2a2a);
+  border-radius: 12px;
+}
+
+/* Media queries para tablets */
+@media (max-width: 1024px) {
+  .dashboard {
+    padding: 20px 15px;
+  }
+  
+  .create-event-form {
+    max-width: 500px;
+    padding: 20px;
+  }
+  
+  .events-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+}
+
+/* Media queries para móviles */
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 15px 10px;
+  }
+  
+  .dashboard-header h1 {
+    font-size: 28px;
+  }
+  
+  .create-event-form {
+    max-width: 95%;
+    padding: 20px 15px;
+    margin-bottom: 30px;
+  }
+  
+  .create-event-form h2 {
+    font-size: 20px;
+  }
+  
+  .form-buttons {
+    flex-direction: column;
+  }
+  
+  .save-btn,
+  .cancel-btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .events-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .dashboard-card {
+    padding: 15px;
+    min-height: auto;
+  }
+  
+  .card-actions {
+    gap: 8px;
+  }
+  
+  .edit-btn,
+  .delete-btn {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+}
+
+/* Media queries para móviles pequeños */
+@media (max-width: 480px) {
+  .dashboard {
+    padding: 10px 5px;
+  }
+  
+  .dashboard-header h1 {
+    font-size: 24px;
+  }
+  
+  .dashboard-header p {
+    font-size: 14px;
+  }
+  
+  .create-event-form {
+    padding: 15px 10px;
+  }
+  
+  .create-event-form input {
+    padding: 10px;
+    font-size: 13px;
+  }
+  
+  .dashboard-card {
+    padding: 10px;
+  }
+  
+  .card-actions {
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .edit-btn,
+  .delete-btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 13px;
+  }
 }
