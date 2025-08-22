@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import EventCard from "../components/EventCard";
-import "../Css/EventCard.css";
+import "../Css/Dashboard.css";
 
-const Dashboard = () => {
+const Eventos = () => {
   const [eventos, setEventos] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -74,4 +74,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Eventos;
