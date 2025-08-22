@@ -64,7 +64,7 @@ const Login = () => {
       const data = await res.json();
       const usuario = {
         token: data.token,
-        rol: data.rol || "admin",
+        rol: data.role || "admin",
         email: data.email || email,
         nombre: data.nombre || "Usuario"
       };
@@ -163,3 +163,4 @@ const Login = () => {
 };
 
 export default Login;
+
